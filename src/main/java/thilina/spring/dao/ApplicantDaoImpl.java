@@ -2,18 +2,18 @@ package thilina.spring.dao;
 
 import java.util.List;
 
-import thilina.spring.bean.Customer;
+import thilina.spring.bean.Applicant;
 
-public class CustomerDaoImpl implements CustomerDao{
+public class ApplicantDaoImpl implements ApplicantDao{
 
 	@Override
-	public void create(Customer customer) {
+	public void create(Applicant customer) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void update(Customer customer) {
+	public void update(Applicant customer) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -25,13 +25,13 @@ public class CustomerDaoImpl implements CustomerDao{
 	}
 
 	@Override
-	public Customer findById(String Id) {
+	public Applicant findById(String Id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Customer> getAllCustomers() {
+	public List<Applicant> getAllCustomers() {
 		// TODO Auto-generated method stub
 		return null;
 	}

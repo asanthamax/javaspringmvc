@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class Customer {
+public class Applicant {
 
 	@Id
 	private String Id;
@@ -15,11 +15,11 @@ public class Customer {
 	private String address;
 	private String loyalityPoints;
 	
-	public Customer()
+	public Applicant()
 	{
 		
 	}
-	public Customer(Customer customer)
+	public Applicant(Applicant customer)
 	{
 		super();
 		this.firstName = customer.getFirstName();
