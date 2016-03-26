@@ -14,6 +14,30 @@ public class Applicant {
 	private String contactNo;
 	private String address;
 	private String loyalityPoints;
+	private String userName;
+	private String email;
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+	
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	private String password;
 	
 	public Applicant()
 	{
@@ -74,6 +98,8 @@ public class Applicant {
 		builder.append("Customer Contact No :").append(this.getContactNo()).append("\n");
 		builder.append("Customer Address :").append(this.getAddress()).append("\n");
 		builder.append("Customer Loyality Points:").append(this.getLoyalityPoints()).append("\n");
+		builder.append("Customer User Name :").append(this.getUserName()).append("\n");
+		builder.append("Customer Password :").append(this.getPassword()).append("\n");
 		return builder.toString();
 	}
 	

@@ -15,4 +15,6 @@ public interface ApplicantDao {
 	public Applicant findById(String Id);
 
 	public List<Applicant> getAllCustomers();
+	
+	public boolean logAuthenticate(String userName,String password);
 }
