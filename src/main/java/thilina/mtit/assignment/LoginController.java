@@ -19,6 +19,20 @@ public class LoginController {
 	{
 		ModelAndView model = new ModelAndView();
 		model.addObject("status",user.getMessage());
-		return "home";
+		return "resetpassword";
+	}
+	
+	@RequestMapping(value = "/" ,method=RequestMethod.GET)
+	public String login()
+	{
+		ModelAndView model = new ModelAndView();
+		model.addObject("status",user.getMessage());
+		return "login";
+	}
+	
+	@RequestMapping(value="/signup",method=RequestMethod.GET)
+	public String signup()
+	{
+		return "signup";
 	}
 }

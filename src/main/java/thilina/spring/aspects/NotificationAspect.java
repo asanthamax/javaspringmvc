@@ -1,5 +1,7 @@
 package thilina.spring.aspects;
 
+import java.io.IOException;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.aspectj.lang.JoinPoint;
@@ -12,6 +14,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
 import thilina.spring.bean.Applicant;
+import thilina.spring.dao.ApplicantDao;
 import thilina.spring.dao.ApplicantDaoImpl;
 
 
@@ -25,12 +28,12 @@ public class NotificationAspect {
 	public void sendNotifications(JoinPoint joinPoint,String userID)
 	{
 		try{
-			ApplicantDaoImpl app = new ApplicantDaoImpl();
+			ApplicantDao app = new ApplicantDaoImpl();
 			Applicant applicant = app.findById(userID);
 			SimpleMailMessage mail = new SimpleMailMessage();
 			mail.setTo(applicant.getEmail());
 			mail.setSubject("CV Send Notification");
-			mail.setText("Your CV sent to available companies");
+			mail.setText("Your CV sent to available companies they will contact you if there any vaccancies");
 			javaMailSender.send(mail);
 		}
 		catch(Exception ex)
@@ -39,9 +42,9 @@ public class NotificationAspect {
 		}
 	}
 	
-	@AfterThrowing("execution(* thilina.spring.service.Manager.pushCV(..))")
-	public void cvUploadError()
+	@AfterThrowing(pointcut="execution(* thilina.spring.service.Manager.pushCV(..))",throwing = "e")
+	public void cvUploadError(JoinPoint joinPoint,IOException e)
 	{
-		
+		log.error("File Cannot be uploaded following error occur :"+e.getMessage());
 	}
 }
